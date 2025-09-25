@@ -35,8 +35,7 @@ spring:
           enabled: false
 
 mybatis:
-  type-aliases-package: com.etrackhis.autoproject.domain
-  mapper-locations: classpath*:/mapper/*.xml
+  mapper-locations: classpath*:/mapper/fixed/*.xml
   global-config:
     id-type: ASSIGN_ID
     capital-mode: false

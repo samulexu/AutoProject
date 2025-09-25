@@ -10,6 +10,6 @@
     </settings>
     <!-- 设置别名  name后面的包名是你自己的-->
     <typeAliases>
-        <package name="com.etrackhis.regcashmodule.entity"/>
+        <package name="com.etrackhis.autoproject.domain"/>
     </typeAliases>
 </configuration>
