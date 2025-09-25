@@ -2,13 +2,11 @@ package com.etrackhis.autoproject.service;
 
 
 import com.etrackhis.autoproject.domain.AiInterparm;
-import com.etrackhis.autoproject.domain.GiDbddldefine;
 import com.etrackhis.autoproject.domain.IiTradetypeinfo;
 import com.etrackhis.autoproject.service.fixed.IAiInterparmService;
-import com.etrackhis.autoproject.service.fixed.IGiDbddldefineService;
 import com.etrackhis.autoproject.service.fixed.IIiTradetypeinfoService;
+import com.tocloud.common.core.utils.StringUtils;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -25,9 +23,6 @@ public class AutoBaseService {
 
     /** 接口的公共参数 */
     protected Map<String, Object> params;
-
-    @Autowired
-    private IGiDbddldefineService defineService;
 
     @Autowired
     private IAiInterparmService interParamService;
@@ -133,8 +128,8 @@ public class AutoBaseService {
 
         try {
             // 从ai_interparam表中获取参数
-            List<AiInterparm> interParamList = interParamService.selectList(AiInterparm.builder().wbjkid(wbjkid).build());
-
+//            List<AiInterparm> interParamList = interParamService.selectList(AiInterparm.builder().wbjkid(wbjkid).build());
+            List<AiInterparm> interParamList = new ArrayList<>();
             for (AiInterparm param : interParamList) {
                 String key = param.getJkcsyw();
                 Object value = param.getJkcsnr();
@@ -157,7 +152,8 @@ public class AutoBaseService {
      */
     protected List<IiTradetypeinfo> getTradeTypeInfo(String wbjkid) {
         try {
-            return tradeTypeInfoService.selectList(IiTradetypeinfo.builder().wbjkid(wbjkid).build());
+//            return tradeTypeInfoService.selectList(IiTradetypeinfo.builder().wbjkid(wbjkid).build());
+            return new ArrayList<>();
         } catch (Exception e) {
             log.error("获取交易类型信息失败: {}", e.getMessage());
             return new ArrayList<>();
@@ -174,12 +170,12 @@ public class AutoBaseService {
 
         try {
             // 从gi_dbddldefine表中获取SQL定义
-            GiDbddldefine sqlDefine = defineService.selectOneByKey(sqlId);
-
-            if (sqlDefine != null && StringUtils.isNotBlank(sqlDefine.getXtsqly())) {
-                String sql = sqlDefine.getXtsqly();
-                result = jdbcTemplate.queryForList(sql);
-            }
+//            GiDbddldefine sqlDefine = defineService.selectOneByKey(sqlId);
+//
+//            if (sqlDefine != null && StringUtils.isNotBlank(sqlDefine.getXtsqly())) {
+//                String sql = sqlDefine.getXtsqly();
+//                result = jdbcTemplate.queryForList(sql);
+//            }
         } catch (Exception e) {
             log.error("执行SQL查询失败: {}", e.getMessage());
         }

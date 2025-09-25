@@ -1,7 +1,7 @@
 package com.etrackhis.autoproject.base;
 
-import com.etrack.common.core.utils.MapUtils;
-import org.apache.commons.lang.StringUtils;
+import com.tocloud.common.core.utils.StringUtils;
+import org.apache.commons.collections.MapUtils;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 

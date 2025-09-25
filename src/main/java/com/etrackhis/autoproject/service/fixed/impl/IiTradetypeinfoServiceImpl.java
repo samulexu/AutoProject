@@ -1,26 +1,18 @@
 package com.etrackhis.autoproject.service.fixed.impl;
 
-import com.etrack.common.core.mapper.BaseMapper;
-import com.etrack.common.core.service.BaseServiceImpl;
+import com.tocloud.framework.service.impl.BaseServiceImpl;
 import com.etrackhis.autoproject.domain.IiTradetypeinfo;
 import com.etrackhis.autoproject.mapper.fixed.IiTradetypeinfoMapper;
 import com.etrackhis.autoproject.service.fixed.IIiTradetypeinfoService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
+/**
+ * 交易类型信息II_TRADETYPEINFO(IiTradetypeinfo)表服务接口
+ *
+ * @author Xuwq
+ * @since 2025-09-25 17:41:53
+ */
 @Service
-public class IiTradetypeinfoServiceImpl extends BaseServiceImpl<IiTradetypeinfo> implements IIiTradetypeinfoService {
-    @Autowired
-    IiTradetypeinfoMapper baseMapper;
-
-    @Override
-    public BaseMapper<IiTradetypeinfo> getBaseMapper() {
-        return baseMapper;
-    }
+public class IiTradetypeinfoServiceImpl extends BaseServiceImpl<IiTradetypeinfoMapper, IiTradetypeinfo> implements IIiTradetypeinfoService {
     
-    @Override
-    public IiTradetypeinfo selectOneByKey(String jylxid){;
-        return baseMapper.selectOneByKey(jylxid);
-    }
 }

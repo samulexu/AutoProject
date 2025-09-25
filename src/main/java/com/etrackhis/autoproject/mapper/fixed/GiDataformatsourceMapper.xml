@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.etrackhis.autoproject.mapper.fixed.GiDataformatsourceMapper">
+ 
+    <resultMap type="com.etrackhis.autoproject.domain.GiDataformatsource" id="GiDataformatsourceResult">
+        <result property="rowId" column="ID" />
+        <result property="sjgsid" column="SJGSID" />
+        <result property="sjlyxh" column="SJLYXH" />
+        <result property="fllyxh" column="FLLYXH" />
+        <result property="sjjddm" column="SJJDDM" />
+        <result property="sjlynr" column="SJLYNR" />
+        <result property="xtdbdm" column="XTDBDM" />
+        <result property="pclyxh" column="PCLYXH" />
+        <result property="sjjdlb" column="SJJDLB" />
+        <result property="flglzd" column="FLGLZD" />
+    </resultMap>
+    
+    <!--查询的表字段-->
+    <sql id="selectVo">
+        select ROWID as ID, SJGSID, SJLYXH, FLLYXH, SJJDDM, SJLYNR, XTDBDM, PCLYXH, SJJDLB, FLGLZD from GI_DATAFORMATSOURCE
+    </sql>
+    
+    <!--通过主键查询单条-->
+    <select id="selectOneByKey" resultMap="GiDataformatsourceResult">
+        <include refid="selectVo"/>
+        <where>
+            SJGSID = #{sjgsid} and             
+            SJLYXH = #{sjlyxh}  
+        </where>
+    </select>
+    
+    <!--通过对象查询单条-->
+    <select id="selectOne" resultMap="GiDataformatsourceResult">
+        <include refid="selectVo"/>
+        <where>
+            1 = 1
+            <if test="sjgsid != null and sjgsid != ''"> and SJGSID = #{sjgsid}</if> 
+            <if test="sjlyxh != null"> and SJLYXH = #{sjlyxh}</if> 
+            <if test="fllyxh != null"> and FLLYXH = #{fllyxh}</if> 
+            <if test="sjjddm != null and sjjddm != ''"> and SJJDDM = #{sjjddm}</if> 
+            <if test="sjlynr != null and sjlynr != ''"> and SJLYNR = #{sjlynr}</if> 
+            <if test="xtdbdm != null and xtdbdm != ''"> and XTDBDM = #{xtdbdm}</if> 
+            <if test="pclyxh != null"> and PCLYXH = #{pclyxh}</if> 
+            <if test="sjjdlb != null and sjjdlb != ''"> and SJJDLB = #{sjjdlb}</if> 
+            <if test="flglzd != null and flglzd != ''"> and FLGLZD = #{flglzd}</if> 
+        </where>
+    </select>
+    
+    <!--通过Map参数根据查询单条-->
+    <select id="selectOneByMap" resultMap="GiDataformatsourceResult" parameterType="java.util.HashMap">
+        <include refid="selectVo"/>
+        <where>
+            1 = 1
+            <if test="sjgsid != null and sjgsid != ''"> and SJGSID = #{sjgsid}</if> 
+            <if test="sjlyxh != null"> and SJLYXH = #{sjlyxh}</if> 
+            <if test="fllyxh != null"> and FLLYXH = #{fllyxh}</if> 
+            <if test="sjjddm != null and sjjddm != ''"> and SJJDDM = #{sjjddm}</if> 
+            <if test="sjlynr != null and sjlynr != ''"> and SJLYNR = #{sjlynr}</if> 
+            <if test="xtdbdm != null and xtdbdm != ''"> and XTDBDM = #{xtdbdm}</if> 
+            <if test="pclyxh != null"> and PCLYXH = #{pclyxh}</if> 
+            <if test="sjjdlb != null and sjjdlb != ''"> and SJJDLB = #{sjjdlb}</if> 
+            <if test="flglzd != null and flglzd != ''"> and FLGLZD = #{flglzd}</if> 
+        </where>
+    </select>
+    
+    <!--通过实体参数查询多行-->
+    <select id="selectList" resultMap="GiDataformatsourceResult">
+        <include refid="selectVo"/>
+        <where>
+            1 = 1
+            <if test="sjgsid != null and sjgsid != ''"> and SJGSID = #{sjgsid}</if> 
+            <if test="sjlyxh != null"> and SJLYXH = #{sjlyxh}</if> 
+            <if test="fllyxh != null"> and FLLYXH = #{fllyxh}</if> 
+            <if test="sjjddm != null and sjjddm != ''"> and SJJDDM = #{sjjddm}</if> 
+            <if test="sjlynr != null and sjlynr != ''"> and SJLYNR = #{sjlynr}</if> 
+            <if test="xtdbdm != null and xtdbdm != ''"> and XTDBDM = #{xtdbdm}</if> 
+            <if test="pclyxh != null"> and PCLYXH = #{pclyxh}</if> 
+            <if test="sjjdlb != null and sjjdlb != ''"> and SJJDLB = #{sjjdlb}</if> 
+            <if test="flglzd != null and flglzd != ''"> and FLGLZD = #{flglzd}</if> 
+        </where>
+    </select>
+    
+    <!--通过Map参数查询多行-->
+    <select id="selectListByMap" resultMap="GiDataformatsourceResult" parameterType="java.util.HashMap">
+        <include refid="selectVo"/>
+        <where>
+            1 = 1
+            <if test="sjgsid != null and sjgsid != ''"> and SJGSID = #{sjgsid}</if> 
+            <if test="sjlyxh != null"> and SJLYXH = #{sjlyxh}</if> 
+            <if test="fllyxh != null"> and FLLYXH = #{fllyxh}</if> 
+            <if test="sjjddm != null and sjjddm != ''"> and SJJDDM = #{sjjddm}</if> 
+            <if test="sjlynr != null and sjlynr != ''"> and SJLYNR = #{sjlynr}</if> 
+            <if test="xtdbdm != null and xtdbdm != ''"> and XTDBDM = #{xtdbdm}</if> 
+            <if test="pclyxh != null"> and PCLYXH = #{pclyxh}</if> 
+            <if test="sjjdlb != null and sjjdlb != ''"> and SJJDLB = #{sjjdlb}</if> 
+            <if test="flglzd != null and flglzd != ''"> and FLGLZD = #{flglzd}</if> 
+        </where>
+    </select>
+    
+    <select id="selectToMap" resultType="java.util.Map">
+        select ${keyCol}, ${valueCol} from GI_DATAFORMATSOURCE
+        <where>
+            1 = 1
+            <if test="sjgsid != null and sjgsid != ''"> and SJGSID = #{sjgsid}</if> 
+            <if test="sjlyxh != null"> and SJLYXH = #{sjlyxh}</if> 
+            <if test="fllyxh != null"> and FLLYXH = #{fllyxh}</if> 
+            <if test="sjjddm != null and sjjddm != ''"> and SJJDDM = #{sjjddm}</if> 
+            <if test="sjlynr != null and sjlynr != ''"> and SJLYNR = #{sjlynr}</if> 
+            <if test="xtdbdm != null and xtdbdm != ''"> and XTDBDM = #{xtdbdm}</if> 
+            <if test="pclyxh != null"> and PCLYXH = #{pclyxh}</if> 
+            <if test="sjjdlb != null and sjjdlb != ''"> and SJJDLB = #{sjjdlb}</if> 
+            <if test="flglzd != null and flglzd != ''"> and FLGLZD = #{flglzd}</if> 
+        </where>
+    </select>
+    
+    <!--根据条件查询行数-->
+    <select id="count" resultType="java.lang.Long">
+        select count(*) from GI_DATAFORMATSOURCE
+        <where>
+            1 = 1
+            <if test="sjgsid != null and sjgsid != ''"> and SJGSID = #{sjgsid}</if> 
+            <if test="sjlyxh != null"> and SJLYXH = #{sjlyxh}</if> 
+            <if test="fllyxh != null"> and FLLYXH = #{fllyxh}</if> 
+            <if test="sjjddm != null and sjjddm != ''"> and SJJDDM = #{sjjddm}</if> 
+            <if test="sjlynr != null and sjlynr != ''"> and SJLYNR = #{sjlynr}</if> 
+            <if test="xtdbdm != null and xtdbdm != ''"> and XTDBDM = #{xtdbdm}</if> 
+            <if test="pclyxh != null"> and PCLYXH = #{pclyxh}</if> 
+            <if test="sjjdlb != null and sjjdlb != ''"> and SJJDLB = #{sjjdlb}</if> 
+            <if test="flglzd != null and flglzd != ''"> and FLGLZD = #{flglzd}</if> 
+        </where>
+    </select>
+    
+    <!--插入单条-->
+    <insert id="insert">
+        insert into GI_DATAFORMATSOURCE
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="sjgsid != null">SJGSID,</if>
+            <if test="sjlyxh != null">SJLYXH,</if>
+            <if test="fllyxh != null">FLLYXH,</if>
+            <if test="sjjddm != null">SJJDDM,</if>
+            <if test="sjlynr != null">SJLYNR,</if>
+            <if test="xtdbdm != null">XTDBDM,</if>
+            <if test="pclyxh != null">PCLYXH,</if>
+            <if test="sjjdlb != null">SJJDLB,</if>
+            <if test="flglzd != null">FLGLZD,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="sjgsid != null">#{sjgsid},</if>
+            <if test="sjlyxh != null">#{sjlyxh},</if>
+            <if test="fllyxh != null">#{fllyxh},</if>
+            <if test="sjjddm != null">#{sjjddm},</if>
+            <if test="sjlynr != null">#{sjlynr},</if>
+            <if test="xtdbdm != null">#{xtdbdm},</if>
+            <if test="pclyxh != null">#{pclyxh},</if>
+            <if test="sjjdlb != null">#{sjjdlb},</if>
+            <if test="flglzd != null">#{flglzd},</if>
+        </trim>
+    </insert>
+    
+    <update id="update">
+        update GI_DATAFORMATSOURCE
+        <trim prefix="SET" suffixOverrides=",">   
+            <if test="sjgsid != null">SJGSID = #{sjgsid},</if>
+            <if test="sjlyxh != null">SJLYXH = #{sjlyxh},</if>
+            <if test="fllyxh != null">FLLYXH = #{fllyxh},</if>
+            <if test="sjjddm != null">SJJDDM = #{sjjddm},</if>
+            <if test="sjlynr != null">SJLYNR = #{sjlynr},</if>
+            <if test="xtdbdm != null">XTDBDM = #{xtdbdm},</if>
+            <if test="pclyxh != null">PCLYXH = #{pclyxh},</if>
+            <if test="sjjdlb != null">SJJDLB = #{sjjdlb},</if>
+            <if test="flglzd != null">FLGLZD = #{flglzd},</if>
+        </trim>
+        <where>
+            ROWID = #{rowId}
+        </where>
+    </update>
+    
+    <update id="updateByKey">
+        update GI_DATAFORMATSOURCE
+        <trim prefix="SET" suffixOverrides=",">   
+            <if test="fllyxh != null">FLLYXH = #{fllyxh},</if>
+            <if test="sjjddm != null">SJJDDM = #{sjjddm},</if>
+            <if test="sjlynr != null">SJLYNR = #{sjlynr},</if>
+            <if test="xtdbdm != null">XTDBDM = #{xtdbdm},</if>
+            <if test="pclyxh != null">PCLYXH = #{pclyxh},</if>
+            <if test="sjjdlb != null">SJJDLB = #{sjjdlb},</if>
+            <if test="flglzd != null">FLGLZD = #{flglzd},</if>
+        </trim>
+        <where>
+            SJGSID = #{sjgsid} and             
+            SJLYXH = #{sjlyxh}  
+        </where>
+    </update> 
+    
+    <!--根据主键删除数据-->
+    <delete id="remove">
+        delete from GI_DATAFORMATSOURCE
+        where
+            SJGSID = #{sjgsid} and             
+            SJLYXH = #{sjlyxh}  
+    </delete>
+    
+    <!--自定义sql-->
+</mapper>

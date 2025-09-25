@@ -6,7 +6,6 @@ import org.springframework.scheduling.TaskScheduler;
 import org.springframework.scheduling.config.CronTask;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PreDestroy;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -72,7 +71,6 @@ public class CronTaskRegister {
         return true;
     }
 
-    @PreDestroy
     public void destroy() {
         for (ScheduledTask task : this.scheduledTasks.values()) { task.cancel(); }
         this.scheduledTasks.clear();

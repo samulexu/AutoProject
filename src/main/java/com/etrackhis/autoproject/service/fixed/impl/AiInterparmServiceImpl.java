@@ -1,26 +1,18 @@
 package com.etrackhis.autoproject.service.fixed.impl;
 
-import com.etrack.common.core.mapper.BaseMapper;
-import com.etrack.common.core.service.BaseServiceImpl;
+import com.tocloud.framework.service.impl.BaseServiceImpl;
 import com.etrackhis.autoproject.domain.AiInterparm;
 import com.etrackhis.autoproject.mapper.fixed.AiInterparmMapper;
 import com.etrackhis.autoproject.service.fixed.IAiInterparmService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
+/**
+ * (AiInterparm)表服务接口
+ *
+ * @author Xuwq
+ * @since 2025-09-25 17:40:15
+ */
 @Service
-public class AiInterparmServiceImpl extends BaseServiceImpl<AiInterparm> implements IAiInterparmService {
-    @Autowired
-    AiInterparmMapper baseMapper;
-
-    @Override
-    public BaseMapper<AiInterparm> getBaseMapper() {
-        return baseMapper;
-    }
+public class AiInterparmServiceImpl extends BaseServiceImpl<AiInterparmMapper, AiInterparm> implements IAiInterparmService {
     
-    @Override
-    public AiInterparm selectOneByKey(String wbjkid,Integer jkcsxh){;
-        return baseMapper.selectOneByKey(wbjkid,jkcsxh);
-    }
 }

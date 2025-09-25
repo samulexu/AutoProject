@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.etrackhis.autoproject.mapper.fixed.AiInter2hisMapper">
+ 
+    <resultMap type="com.etrackhis.autoproject.domain.AiInter2his" id="AiInter2hisResult">
+        <result property="rowId" column="ID" />
+    </resultMap>
+    
+    <!--查询的表字段-->
+    <sql id="selectVo">
+        select ROWID as ID,  from AI_INTER2HIS
+    </sql>
+    
+    <!--通过主键查询单条-->
+    <select id="selectOneByKey" resultMap="AiInter2hisResult">
+        <include refid="selectVo"/>
+        <where>
+        </where>
+    </select>
+    
+    <!--通过对象查询单条-->
+    <select id="selectOne" resultMap="AiInter2hisResult">
+        <include refid="selectVo"/>
+        <where>
+            1 = 1
+        </where>
+    </select>
+    
+    <!--通过Map参数根据查询单条-->
+    <select id="selectOneByMap" resultMap="AiInter2hisResult" parameterType="java.util.HashMap">
+        <include refid="selectVo"/>
+        <where>
+            1 = 1
+        </where>
+    </select>
+    
+    <!--通过实体参数查询多行-->
+    <select id="selectList" resultMap="AiInter2hisResult">
+        <include refid="selectVo"/>
+        <where>
+            1 = 1
+        </where>
+    </select>
+    
+    <!--通过Map参数查询多行-->
+    <select id="selectListByMap" resultMap="AiInter2hisResult" parameterType="java.util.HashMap">
+        <include refid="selectVo"/>
+        <where>
+            1 = 1
+        </where>
+    </select>
+    
+    <select id="selectToMap" resultType="java.util.Map">
+        select ${keyCol}, ${valueCol} from AI_INTER2HIS
+        <where>
+            1 = 1
+        </where>
+    </select>
+    
+    <!--根据条件查询行数-->
+    <select id="count" resultType="java.lang.Long">
+        select count(*) from AI_INTER2HIS
+        <where>
+            1 = 1
+        </where>
+    </select>
+    
+    <!--插入单条-->
+    <insert id="insert">
+        insert into AI_INTER2HIS
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        </trim>
+    </insert>
+    
+    <update id="update">
+        update AI_INTER2HIS
+        <trim prefix="SET" suffixOverrides=",">   
+        </trim>
+        <where>
+            ROWID = #{rowId}
+        </where>
+    </update>
+    
+    <update id="updateByKey">
+        update AI_INTER2HIS
+        <trim prefix="SET" suffixOverrides=",">   
+        </trim>
+        <where>
+        </where>
+    </update> 
+    
+    <!--根据主键删除数据-->
+    <delete id="remove">
+        delete from AI_INTER2HIS
+        where
+    </delete>
+    
+    <!--自定义sql-->
+</mapper>

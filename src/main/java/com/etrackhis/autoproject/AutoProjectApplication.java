@@ -1,24 +1,21 @@
 package com.etrackhis.autoproject;
 
-import org.mybatis.spring.annotation.MapperScan;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.context.metrics.buffering.BufferingApplicationStartup;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
-import org.springframework.cache.annotation.EnableCaching;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.openfeign.EnableFeignClients;
-import org.springframework.scheduling.annotation.EnableScheduling;
 
-@EnableScheduling
-@EnableCaching
-@SpringBootApplication(scanBasePackages = {"com.etrackhis"})
-@EnableDiscoveryClient //nacos客户端注解
-@EnableFeignClients  //Feign
+@SpringBootApplication
 public class AutoProjectApplication  extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
-        SpringApplication.run(AutoProjectApplication.class, args);
+        SpringApplication application = new SpringApplication(AutoProjectApplication.class);
+        application.setApplicationStartup(new BufferingApplicationStartup(2048));
+        application.run(args);
+
+        System.out.println("(♥◠‿◠)ﾉﾞ自动任务服务启动成功 ლ(´ڡ`ლ)ﾞ  ");
     }
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {

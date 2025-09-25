@@ -2,7 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.etrackhis.autoproject.mapper.fixed.IiTradetypeinfoMapper">
  
-    <resultMap type="IiTradetypeinfo" id="IiTradetypeinfoResult">
+    <resultMap type="com.etrackhis.autoproject.domain.IiTradetypeinfo" id="IiTradetypeinfoResult">
+        <result property="rowId" column="ID" />
         <result property="jylxid" column="JYLXID" />
         <result property="wbjkid" column="WBJKID" />
         <result property="zzjgdm" column="ZZJGDM" />
@@ -19,7 +20,7 @@
     
     <!--查询的表字段-->
     <sql id="selectVo">
-        select JYLXID, WBJKID, ZZJGDM, JYLXBM, JYLXMC, JKJYBM, JYRKLY, JYCSLY, JYCLLY, ZHSJID, XGYHDM, XGCZSJ from II_TRADETYPEINFO
+        select ROWID as ID, JYLXID, WBJKID, ZZJGDM, JYLXBM, JYLXMC, JKJYBM, JYRKLY, JYCSLY, JYCLLY, ZHSJID, XGYHDM, XGCZSJ from II_TRADETYPEINFO
     </sql>
     
     <!--通过主键查询单条-->
@@ -30,19 +31,43 @@
         </where>
     </select>
     
-    <!--通过对象主键查询单条-->
+    <!--通过对象查询单条-->
     <select id="selectOne" resultMap="IiTradetypeinfoResult">
         <include refid="selectVo"/>
         <where>
-            JYLXID = #{jylxid}  
+            1 = 1
+            <if test="jylxid != null and jylxid != ''"> and JYLXID = #{jylxid}</if> 
+            <if test="wbjkid != null and wbjkid != ''"> and WBJKID = #{wbjkid}</if> 
+            <if test="zzjgdm != null and zzjgdm != ''"> and ZZJGDM = #{zzjgdm}</if> 
+            <if test="jylxbm != null and jylxbm != ''"> and JYLXBM = #{jylxbm}</if> 
+            <if test="jylxmc != null and jylxmc != ''"> and JYLXMC = #{jylxmc}</if> 
+            <if test="jkjybm != null and jkjybm != ''"> and JKJYBM = #{jkjybm}</if> 
+            <if test="jyrkly != null and jyrkly != ''"> and JYRKLY = #{jyrkly}</if> 
+            <if test="jycsly != null and jycsly != ''"> and JYCSLY = #{jycsly}</if> 
+            <if test="jyclly != null and jyclly != ''"> and JYCLLY = #{jyclly}</if> 
+            <if test="zhsjid != null and zhsjid != ''"> and ZHSJID = #{zhsjid}</if> 
+            <if test="xgyhdm != null and xgyhdm != ''"> and XGYHDM = #{xgyhdm}</if> 
+            <if test="xgczsj != null"> and XGCZSJ = #{xgczsj}</if> 
         </where>
     </select>
     
-    <!--通过Map参数根据主键查询单条-->
+    <!--通过Map参数根据查询单条-->
     <select id="selectOneByMap" resultMap="IiTradetypeinfoResult" parameterType="java.util.HashMap">
         <include refid="selectVo"/>
         <where>
-            JYLXID = #{jylxid}  
+            1 = 1
+            <if test="jylxid != null and jylxid != ''"> and JYLXID = #{jylxid}</if> 
+            <if test="wbjkid != null and wbjkid != ''"> and WBJKID = #{wbjkid}</if> 
+            <if test="zzjgdm != null and zzjgdm != ''"> and ZZJGDM = #{zzjgdm}</if> 
+            <if test="jylxbm != null and jylxbm != ''"> and JYLXBM = #{jylxbm}</if> 
+            <if test="jylxmc != null and jylxmc != ''"> and JYLXMC = #{jylxmc}</if> 
+            <if test="jkjybm != null and jkjybm != ''"> and JKJYBM = #{jkjybm}</if> 
+            <if test="jyrkly != null and jyrkly != ''"> and JYRKLY = #{jyrkly}</if> 
+            <if test="jycsly != null and jycsly != ''"> and JYCSLY = #{jycsly}</if> 
+            <if test="jyclly != null and jyclly != ''"> and JYCLLY = #{jyclly}</if> 
+            <if test="zhsjid != null and zhsjid != ''"> and ZHSJID = #{zhsjid}</if> 
+            <if test="xgyhdm != null and xgyhdm != ''"> and XGYHDM = #{xgyhdm}</if> 
+            <if test="xgczsj != null"> and XGCZSJ = #{xgczsj}</if> 
         </where>
     </select>
     
@@ -86,8 +111,27 @@
         </where>
     </select>
     
+    <select id="selectToMap" resultType="java.util.Map">
+        select ${keyCol}, ${valueCol} from II_TRADETYPEINFO
+        <where>
+            1 = 1
+            <if test="jylxid != null and jylxid != ''"> and JYLXID = #{jylxid}</if> 
+            <if test="wbjkid != null and wbjkid != ''"> and WBJKID = #{wbjkid}</if> 
+            <if test="zzjgdm != null and zzjgdm != ''"> and ZZJGDM = #{zzjgdm}</if> 
+            <if test="jylxbm != null and jylxbm != ''"> and JYLXBM = #{jylxbm}</if> 
+            <if test="jylxmc != null and jylxmc != ''"> and JYLXMC = #{jylxmc}</if> 
+            <if test="jkjybm != null and jkjybm != ''"> and JKJYBM = #{jkjybm}</if> 
+            <if test="jyrkly != null and jyrkly != ''"> and JYRKLY = #{jyrkly}</if> 
+            <if test="jycsly != null and jycsly != ''"> and JYCSLY = #{jycsly}</if> 
+            <if test="jyclly != null and jyclly != ''"> and JYCLLY = #{jyclly}</if> 
+            <if test="zhsjid != null and zhsjid != ''"> and ZHSJID = #{zhsjid}</if> 
+            <if test="xgyhdm != null and xgyhdm != ''"> and XGYHDM = #{xgyhdm}</if> 
+            <if test="xgczsj != null"> and XGCZSJ = #{xgczsj}</if> 
+        </where>
+    </select>
+    
     <!--根据条件查询行数-->
-    <select id="selectCount" resultType="java.lang.Long">
+    <select id="count" resultType="java.lang.Long">
         select count(*) from II_TRADETYPEINFO
         <where>
             1 = 1
@@ -138,8 +182,7 @@
             <if test="xgczsj != null">#{xgczsj},</if>
         </trim>
     </insert>
-     
-    <!--根据条件更新数据-->
+    
     <update id="update">
         update II_TRADETYPEINFO
         <trim prefix="SET" suffixOverrides=",">   
@@ -182,11 +225,10 @@
     </update> 
     
     <!--根据主键删除数据-->
-    <delete id="delete">
+    <delete id="remove">
         delete from II_TRADETYPEINFO
-        <where>
+        where
             JYLXID = #{jylxid}  
-        </where>
     </delete>
     
     <!--自定义sql-->

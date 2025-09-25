@@ -1,26 +1,18 @@
 package com.etrackhis.autoproject.service.fixed.impl;
 
-import com.etrack.common.core.mapper.BaseMapper;
-import com.etrack.common.core.service.BaseServiceImpl;
+import com.tocloud.framework.service.impl.BaseServiceImpl;
 import com.etrackhis.autoproject.domain.AiInter2his;
 import com.etrackhis.autoproject.mapper.fixed.AiInter2hisMapper;
 import com.etrackhis.autoproject.service.fixed.IAiInter2hisService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
+/**
+ * 接口字典对照AI_INTER2HIS(AiInter2his)表服务接口
+ *
+ * @author Xuwq
+ * @since 2025-09-25 17:39:37
+ */
 @Service
-public class AiInter2hisServiceImpl extends BaseServiceImpl<AiInter2his> implements IAiInter2hisService {
-    @Autowired
-    AiInter2hisMapper baseMapper;
-
-    @Override
-    public BaseMapper<AiInter2his> getBaseMapper() {
-        return baseMapper;
-    }
+public class AiInter2hisServiceImpl extends BaseServiceImpl<AiInter2hisMapper, AiInter2his> implements IAiInter2hisService {
     
-    @Override
-    public AiInter2his selectOneByKey(Long jkdzid){;
-        return baseMapper.selectOneByKey(jkdzid);
-    }
 }

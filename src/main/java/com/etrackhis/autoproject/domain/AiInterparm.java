@@ -1,51 +1,59 @@
 package com.etrackhis.autoproject.domain;
 
-import com.etrack.common.core.domain.BaseEntity;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import java.io.Serial;
+import com.tocloud.common.core.domain.BaseEntity;
+import com.tocloud.common.core.annotation.TcColumn;
+import com.tocloud.common.core.annotation.TcTable;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.*;
 
+/**
+ * (AiInterparm)实体类
+ *
+ * @author Xuwq
+ * @since 2025-09-25 17:40:15
+ */
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode(callSuper = false)
+@Tag(name="AiInterparm", description="AiInterparm对象")
+@TcTable(name ="AI_INTERPARM", description="AiInterparm对象")
 public class AiInterparm extends BaseEntity {
+    @Serial
     private static final long serialVersionUID = 1L;
 
-    /**
-      * 外部接口序号
-      */
+        @Schema(description = "wbjkid")
+        @TcColumn(name="wbjkid", isPrimaryKey = true, required = true )
     private String wbjkid;
-    /**
-      * 接口参数序号
-      */
+
+        @Schema(description = "jkcsxh")
+        @TcColumn(name="jkcsxh", isPrimaryKey = true, required = true )
     private Integer jkcsxh;
 
-    /**
-     * 接口参数英文
-     */
+        @Schema(description = "jkcsyw")
+        @TcColumn(name="jkcsyw")
     private String jkcsyw;
 
-    /**
-     * 接口参数中文
-     */
+        @Schema(description = "jkcszw")
+        @TcColumn(name="jkcszw")
     private String jkcszw;
 
-    /**
-     * 接口参数内容
-     */
+        @Schema(description = "jkcsnr")
+        @TcColumn(name="jkcsnr")
     private String jkcsnr;
 
-    /**
-     * 接口参数说明
-     */
+        @Schema(description = "jkcssm")
+        @TcColumn(name="jkcssm")
     private String jkcssm;
 
     /**
      * 获取主键拼接值
      */
+    @Override
     public String getPkCode() { 
-        return this.wbjkid.toString()+"_"+this.jkcsxh.toString();
+        return this.wbjkid+"_"+this.jkcsxh;
     }
 }
