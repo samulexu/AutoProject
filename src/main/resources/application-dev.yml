@@ -16,8 +16,8 @@ spring:
       config:
         import-check:
           enabled: false
-      discovery:
-        server-addr: localhost:8848 # 若不需要注册中心可注释
+#      discovery:
+#        server-addr: localhost:8848 # 若不需要注册中心可注释
 
 # 自动任务配置
 etrack:
