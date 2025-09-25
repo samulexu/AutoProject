@@ -1,0 +1,73 @@
+#开发环境配置
+#Spring配置
+spring:
+  # Swagger2 与 SpringBoot2.6 以上版本冲突问题
+  mvc:
+    path match:
+      matching-strategy: ant-path-matcher
+  application:
+    name: autoProject
+  # 移除了 web-application-type: none 配置
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  servlet:
+    multipart:
+      maxFileSize: 5MB  #单位必须大写MB或不写(即为B)
+      maxRequestSize: 10MB
+
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      connection-timeout: 6000
+      login-timeout: 6000
+      minimum-idle: 3
+      auto-commit: false
+      maximum-pool-size: 10
+      max-lifetime: 1800000
+    dynamic:
+      primary: master #设置默认的数据源或者数据源组,默认值即为master
+      strict: false #设置严格模式,默认false不启动. 启动后在未匹配到指定数据源时候会抛出异常,不启动则使用默认数据源.
+      p6spy: false
+      lazy: true
+      datasource:
+        master:
+          driver-class-name: oracle.jdbc.driver.OracleDriver
+          url: jdbc:oracle:thin:@//127.0.0.1:1521/orcl
+          username: etrackhis
+          password: etrackhis
+
+
+mybatis-plus:
+  #mapper配置文件。可能有多个，所以Mapper.xml结尾的都添加进来
+  mapper-locations: classpath*:/mapper/*.xml #,classpath*:*/*.xml
+  #  数据库支持id唯一
+  global-config:
+    id-type: ASSIGN_ID
+    capital-mode: false
+
+  # 日志打印
+  configuration:
+    #不打印
+    log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl
+    #打印
+#    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+
+
+#设置服务器接收请求时的字符集
+server:
+  port: 6666
+  servlet:
+    encoding:
+      charset: utf-8
+      enabled: true
+      force: true
+
+#配置文件
+etrack:
+  auto:
+    interIdList:
+      - "1001"
+      - "1002"
+      - "1003"
+    # 其他配置...

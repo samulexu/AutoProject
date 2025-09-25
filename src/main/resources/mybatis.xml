@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <setting name="defaultExecutorType" value="REUSE"/>
+        <!-- 配置控制台输出 -->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+    <!-- 设置别名  name后面的包名是你自己的-->
+    <typeAliases>
+        <package name="com.etrackhis.regcashmodule.entity"/>
+    </typeAliases>
+</configuration>

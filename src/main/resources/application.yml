@@ -1,0 +1,15 @@
+
+#Spring配置
+spring:
+  profiles:
+      # 环境配置
+      active: dev
+
+#设置服务器接收请求时的字符集
+server:
+  port: 9001
+  servlet:
+    encoding:
+      charset: utf-8
+      enabled: true
+      force: true
